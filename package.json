@@ -1,0 +1,35 @@
+{
+  "name": "nutrisense-capstone",
+  "version": "1.0.0",
+  "description": "Bangkit Capstone Project",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/app.js",
+    "start-dev": "npx nodemon ./src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taufanAli65/NutriSense-Capstone.git"
+  },
+  "keywords": [
+    "Bangkit",
+    "Capstone"
+  ],
+  "author": "Alienz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taufanAli65/NutriSense-Capstone/issues"
+  },
+  "homepage": "https://github.com/taufanAli65/NutriSense-Capstone#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "nodemon": "^3.1.7",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1"
+  }
+}
