@@ -4,6 +4,7 @@ const {
   applicationDefault,
   cert,
 } = require("firebase-admin/app");
+const admin = require("firebase-admin");
 const {
   getFirestore,
   Timestamp,
@@ -18,4 +19,4 @@ initializeApp({
 
 const db = getFirestore();
 
-module.exports = { db };
+module.exports = { db, admin };
