@@ -1,4 +1,5 @@
 const { db } = require("./config");
+const { getUserID } = require("./auth");
 
 function validateData(data) {
   if (typeof data !== "object" || data === null) {
@@ -19,20 +20,28 @@ function removeSpaces(str) {
 }
 
 async function addDataToCollection(req, collectionName, data, name) {
-  const userID = req.user?.uid; // Make sure req.user exists and contains uid
   if (!name || typeof name !== 'string') {
     console.error('Invalid name provided:', name);
   }
-
-  var documentID = `${userID}-${removeSpaces(name)}-${getUserLocalDateTime()}`; // Generate documentID based on name and local date-time
+  const userID = await getUserID(req);
+  const localDateTime = getUserLocalDateTime();  // Mendapatkan tanggal dan waktu lokal menggunakan fungsi ini
+  var documentID = `${userID}-${removeSpaces(name)}-${localDateTime}`; // Generate documentID berdasarkan nama dan waktu lokal
+  // Menambahkan user_id dan date (tanggal lokal) ke data
+  const dataToStore = {
+    ...data,            // Menyertakan data yang sudah ada
+    user_id: userID,    // Menambahkan user_id
+    date: localDateTime, // Menambahkan date yang diambil dari getUserLocalDateTime
+  };
   try {
-    validateData(data);
-    console.log("Data being sent to Firestore:", data); // Log the data
+    validateData(data);  // Validasi data
+    console.log("Data being sent to Firestore:", dataToStore); // Log data yang akan disimpan
     const docRef = db.collection(`${collectionName}`).doc(`${documentID}`);
-    await docRef.set({ data });
+    await docRef.set(dataToStore); // Simpan data ke Firestore
+    console.log("Document successfully added with ID:", documentID);
+    return dataToStore;
   } catch (error) {
     console.error("Error adding document: ", error);
-  };
-};
+  }
+}
 
 module.exports = { addDataToCollection };

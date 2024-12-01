@@ -33,4 +33,9 @@ async function signUp (email, password) {
     return userResponse;
 };
 
-module.exports = { login, signUp }
+async function getUserID(req) {
+    const userID = req.user?.uid; // Make sure req.user exists and contains uid
+    return userID;
+  }
+
+module.exports = { login, signUp, getUserID }
