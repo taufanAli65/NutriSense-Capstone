@@ -1,17 +1,11 @@
 var express = require("express");
 var router = express.Router();
-var { auth } = require('../database/config');
-var { login } = require('../database/login');
+var { login, signUp } = require('../database/auth');
 
 router.post("/signup", async(req,res,next) => {
     try {
         const { email, password } = req.body;
-        const userResponse = await auth.createUser({
-            email: email,
-            password: password,
-            emailVerified: false,
-            disabled: false
-        });
+        const userResponse = await signUp(email, password);
         res.status(201).json({ message: "Sign Up Success", data: userResponse });
     } catch (error) {
         next(error)

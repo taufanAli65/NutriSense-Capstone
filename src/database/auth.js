@@ -1,4 +1,4 @@
-
+var { auth } = require('../database/config');
 
 async function login(email, password) {
     require('dotenv').config();
@@ -21,6 +21,16 @@ async function login(email, password) {
     const data = await response.json();
     const idToken = data.idToken;
     return idToken;
-}
+};
 
-module.exports = { login }
+async function signUp (email, password) {
+    const userResponse = auth.createUser({
+        email: email,
+        password: password,
+        emailVerified: false,
+        disabled: false
+    });
+    return userResponse;
+};
+
+module.exports = { login, signUp }
