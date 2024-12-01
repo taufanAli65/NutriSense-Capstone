@@ -14,8 +14,12 @@ function getUserLocalDateTime() {
   return `${date}:${hours}.${minutes}`;
 };
 
+function removeSpaces(str) {
+  return str.replace(/\s+/g, '');
+}
+
 async function addDataToCollection(collectionName, data, name) {
-  var documentID = `${name}-${getUserLocalDateTime()}`; // Generate documentID based on name and local date-time
+  var documentID = `${removeSpaces(name)}-${getUserLocalDateTime()}`; // Generate documentID based on name and local date-time
   try {
     validateData(data);
     console.log("Data being sent to Firestore:", data); // Log the data
