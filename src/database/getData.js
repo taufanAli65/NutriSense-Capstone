@@ -24,9 +24,9 @@ async function getDataByID(collectionName, documentID) {
 }
 
 async function getDataByDate(req, collectionName, date) {
-  const userID = await getUserID(req); 
+  const userID = await getUserID(req);
   const formattedDate = `${date}:00.00`; // Format tanggal input menjadi "YYYY-MM-DD:00.00"
-  
+
   console.log(formattedDate); // Untuk melihat apakah format sudah benar
 
   const querySnapshot = await db
@@ -34,7 +34,7 @@ async function getDataByDate(req, collectionName, date) {
     .where("user_id", "==", userID) // Filter berdasarkan userID
     .where("date", ">=", formattedDate) // Pencarian dengan tanggal yang sudah diformat
     .where("date", "<", `${date}:23.59`) // Pencarian dengan tanggal yang lebih besar dari tanggal sebelumnya tapi lebih kecil dari akhir hari
-    .orderBy("date")  // Mengurutkan berdasarkan 'date'
+    .orderBy("date") // Mengurutkan berdasarkan 'date'
     .get();
 
   const data = querySnapshot.docs.map((doc) => doc.data()); // Menyusun data dari hasil query
