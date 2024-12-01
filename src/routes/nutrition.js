@@ -2,8 +2,9 @@ var express = require("express");
 var router = express.Router();
 const { addDataToCollection, validateDataID } = require("../database/addData");
 const { getDataByID } = require("../database/getData");
+const { authenticateToken } = require("../middleware/auth");
 
-router.post("/", async (req, res, next) => {
+router.post("/", authenticateToken, async (req, res, next) => {
   try {
     const data = req.body;
     const dataID = data.name;
@@ -17,7 +18,7 @@ router.post("/", async (req, res, next) => {
   };
 });
 
-router.get("/:id", async (req, res, next) => {
+router.get("/:id", authenticateToken, async (req, res, next) => {
   try {
     const id = req.params.id;
     const data = await getDataByID('nutrition', id);
