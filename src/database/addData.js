@@ -18,8 +18,13 @@ function removeSpaces(str) {
   return str.replace(/\s+/g, '');
 }
 
-async function addDataToCollection(collectionName, data, name) {
-  var documentID = `${removeSpaces(name)}-${getUserLocalDateTime()}`; // Generate documentID based on name and local date-time
+async function addDataToCollection(req, collectionName, data, name) {
+  const userID = req.user?.uid; // Make sure req.user exists and contains uid
+  if (!name || typeof name !== 'string') {
+    console.error('Invalid name provided:', name);
+  }
+
+  var documentID = `${userID}-${removeSpaces(name)}-${getUserLocalDateTime()}`; // Generate documentID based on name and local date-time
   try {
     validateData(data);
     console.log("Data being sent to Firestore:", data); // Log the data

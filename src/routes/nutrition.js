@@ -11,7 +11,7 @@ router.post("/", authenticateToken, async (req, res, next) => {
     if (!data.name) {
       return res.status(400).json({ message: "Name is required" });
     };
-    await addDataToCollection("nutrition", data, dataID);
+    await addDataToCollection(req, "nutrition", data, dataID);
     res.status(200).json({ message: "Data Added Successfully", data: data });
   } catch (error) {
     next(error);
