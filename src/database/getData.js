@@ -1,11 +1,11 @@
 const { db } = require("./config");
 const { getUserID } = require("./auth");
 
-async function getData(collectionName) {
+async function getData(req, collectionName) {
   const userID = await getUserID(req);
   const snapshot = await db
     .collection(`${collectionName}`)
-    .where("userID", "==", userID)
+    .where("user_id", "==", userID)
     .get();
   const data = [];
   snapshot.forEach((doc) => {

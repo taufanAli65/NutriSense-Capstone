@@ -6,7 +6,7 @@ const { authenticateToken } = require("../middleware/auth");
 /* GET home page. */
 router.get("/", authenticateToken, async (req, res, next) => {
   try {
-    const data = await getData("nutrition");
+    const data = await getData(req, "nutrition");
     if (data) {
       res.status(200).json({ message: "Get Data Success", data: data });
     } else {
