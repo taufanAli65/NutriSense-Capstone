@@ -13,10 +13,11 @@ const {
 } = require("firebase-admin/firestore");
 const serviceAccount = require("../../serviceAccountKey.json");
 
-initializeApp({
+admin.initializeApp({
   credential: cert(serviceAccount),
 });
 
 const db = getFirestore();
+var auth = admin.auth();
 
-module.exports = { db, admin };
+module.exports = { db, auth };
