@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var { auth } = require('../database/config');
+var { login } = require('../database/login');
 
 router.post("/signup", async(req,res,next) => {
     try {
@@ -20,12 +21,11 @@ router.post("/signup", async(req,res,next) => {
 router.post("/login", async (req, res, next) => {
     try {
         const {email, password} = req.body;
-        const user = await auth.getUserByEmail(email);
-        const customToken = await auth.createCustomToken(user.uid);
-        res.status(200).json({message:"Login Success", token: customToken});
+        const idToken = await login(email, password);
+        res.status(200).json({message: "Login Success", token: idToken});
     } catch (error) {
         next(error);
     }
-})
+});
 
 module.exports = router;
