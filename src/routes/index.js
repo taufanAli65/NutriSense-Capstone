@@ -4,7 +4,7 @@ const { getData } = require("../database/getData");
 const { authenticateToken } = require("../middleware/auth");
 
 /* GET home page. */
-router.get("/", authenticateToken, async (req, res, next) => {
+router.get("/", authenticateToken, async (req, res) => {
   try {
     const data = await getData(req, "nutrition");
     if (data) {
@@ -13,7 +13,7 @@ router.get("/", authenticateToken, async (req, res, next) => {
       res.status(404).json({ message: "No data found" });
     }
   } catch (error) {
-    next(error);
+    res.status(500).json({ message: "Internal Server Error", error: error.message });
   }
 });
 
