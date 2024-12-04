@@ -1,8 +1,10 @@
 var express = require("express");
 var router = express.Router();
-const { addDataToCollection, validateDataID } = require("../database/addData");
-const { getDataByID, getDataByDate } = require("../database/getData");
-const { authenticateToken } = require("../middleware/auth");
+var { addDataToCollection } = require("../database/addData");
+var { getDataByID, getDataByDate } = require("../database/getData");
+var { authenticateToken } = require("../middleware/auth");
+var { editData } = require("../database/editData");
+var { db } = require("../database/config");
 
 router.post("/", authenticateToken, async (req, res) => {
   try {
@@ -21,7 +23,9 @@ router.post("/", authenticateToken, async (req, res) => {
       .status(200)
       .json({ message: "Data Added Successfully", data: dataToSend });
   } catch (error) {
-    res.status(500).json({ message: "Internal Server Error", error: error.message });
+    res
+      .status(500)
+      .json({ message: "Internal Server Error", error: error.message });
   }
 });
 
@@ -31,9 +35,34 @@ router.get("/:id", authenticateToken, async (req, res) => {
     const data = await getDataByID("nutrition", id);
     res.status(200).json({ message: "Get Data Success", data: data });
   } catch (error) {
-    res.status(500).json({ message: "Internal Server Error", error: error.message });
+    res
+      .status(500)
+      .json({ message: "Internal Server Error", error: error.message });
   }
 });
+
+router.put("/:id", authenticateToken, async (req, res) => {
+  try {
+    const dataToUpdate = req.body;
+    const id = req.params.id;
+    await editData(id, dataToUpdate);
+    res.status(200).json({message: "Data Successfuly Updated", data_added: dataToUpdate });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Internal Server Error", error: error.message });
+  }
+});
+
+router.delete("/:id", authenticateToken, async (req, res) => {
+  try {
+    const id = req.params.id;
+    const deleteData = await db.collection('nutrition').doc(`${id}`).delete();
+    res.status(200).json({message: "Data Deleted Successfuly"});
+  } catch (error) {
+    res.status(500).json({message: "Internal Server Error", error: error.message});
+  }
+})
 
 router.get("/date/:date", authenticateToken, async (req, res) => {
   try {
@@ -41,7 +70,9 @@ router.get("/date/:date", authenticateToken, async (req, res) => {
     const data = await getDataByDate(req, "nutrition", date);
     res.status(200).json({ message: "Get Data Success", data: data });
   } catch (error) {
-    res.status(500).json({ message: "Internal Server Error", error: error.message });
+    res
+      .status(500)
+      .json({ message: "Internal Server Error", error: error.message });
   }
 });
 
