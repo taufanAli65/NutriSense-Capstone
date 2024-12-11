@@ -51,7 +51,7 @@ app.use(function (err, req, res, next) {
 const port = process.env.APP_PORT || 5000;
 
 app.listen(port, () => {
-  console.log(`API is Running on http://${server}:${port}`);
+  console.log(`API is Running on ${port}`);
 });
 
 module.exports = app;
