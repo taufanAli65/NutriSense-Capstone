@@ -32,9 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal"
-        android:alpha="0"
-        tools:alpha="100"/>
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal"/>
 
 
     <TextView
@@ -46,9 +44,7 @@
         android:text="@string/email"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
-        android:alpha="0"
-        tools:alpha="100"/>
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView"/>
 
 
     <com.capstone.nutrisense.views.auth.authviews.EmailEditText
@@ -59,13 +55,11 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="6dp"
         android:layout_marginEnd="32dp"
-        android:alpha="0"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailTextView"
-        tools:alpha="100" />
+        app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
 
     <TextView
         android:id="@+id/passwordTextView"
@@ -77,9 +71,7 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ed_login_email"
-        app:startIconDrawable="@drawable/email_baseline"
-        android:alpha="0"
-        tools:alpha="100"/>
+        app:startIconDrawable="@drawable/email_baseline"/>
 
     <com.capstone.nutrisense.views.auth.authviews.PasswordEditText
         android:id="@+id/ed_login_password"
@@ -94,9 +86,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordTextView"
         app:startIconDrawable="@drawable/lock_baseline"
-        android:inputType="textPassword"
-        android:alpha="0"
-        tools:alpha="100" />
+        android:inputType="textPassword" />
 
     <com.capstone.nutrisense.views.auth.authviews.ButtonCustom
         android:id="@+id/login_button"
@@ -112,9 +102,7 @@
         android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_login_password"
-        android:alpha="0"
-        tools:alpha="100"/>
+        app:layout_constraintTop_toBottomOf="@+id/ed_login_password"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -130,9 +118,7 @@
             android:id="@+id/tv_not_registered"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/belum_punya_akun"
-            android:alpha="0"
-            tools:alpha="100"/>
+            android:text="@string/belum_punya_akun"/>
 
         <Button
             android:id="@+id/btn_to_register"
@@ -141,9 +127,7 @@
             android:layout_height="wrap_content"
             android:text="@string/daftar_sekarang"
             android:textColor="@color/red"
-            android:textStyle="bold"
-            android:alpha="0"
-            tools:alpha="100"/>
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
