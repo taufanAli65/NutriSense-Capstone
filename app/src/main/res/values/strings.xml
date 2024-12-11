@@ -9,6 +9,7 @@
     <string name="email_invalid">Invalid email format</string>
     <string name="password_hint">Enter your password</string>
     <string name="hint_email">Enter your email</string>
+    <string name="hint_birthday_date">Enter your birthday date</string>
     <string name="password_invalid">Password cannot be less than 8 characters</string>
     <string name="silahkan_login">NutriSense Login</string>
     <string name="masuk">Login</string>
@@ -48,4 +49,9 @@
     <string name="flip_camera">flip camera</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="date_birthday">Date Birthday</string>
+    <string name="title_personal">Complete your personal information</string>
+    <string name="weight">Weight</string>
+    <string name="enter_your_weight">Enter your weight</string>
+
 </resources>

@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.capstone.nutrisense.R
-import com.capstone.nutrisense.views.auth.views.EmailEditText
-import com.capstone.nutrisense.views.auth.views.LoginButton
-import com.capstone.nutrisense.views.auth.views.PasswordEditText
+import com.capstone.nutrisense.views.auth.authviews.EmailEditText
+import com.capstone.nutrisense.views.auth.authviews.LoginButton
+import com.capstone.nutrisense.views.auth.authviews.PasswordEditText
 
 class LoginFragment : Fragment() {
     private var binding = null

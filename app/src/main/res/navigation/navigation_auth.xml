@@ -12,8 +12,15 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
     <fragment
+        android:id="@+id/personalFragment"
+        android:name="com.capstone.nutrisense.views.auth.PersonalFragment"
+        android:label="fragment_personal"
+        tools:layout="@layout/fragment_personal" />
+    <fragment
         android:id="@+id/registerFragment"
         android:name="com.capstone.nutrisense.views.auth.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" />
+
+
 </navigation>

@@ -1,6 +1,6 @@
 @file:Suppress("PrivatePropertyName")
 
-package com.capstone.nutrisense.views.auth.views
+package com.capstone.nutrisense.views.auth.authviews
 
 import android.content.Context
 import android.graphics.Canvas

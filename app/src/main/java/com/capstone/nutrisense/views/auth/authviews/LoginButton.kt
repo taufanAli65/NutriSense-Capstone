@@ -1,4 +1,4 @@
-package com.capstone.nutrisense.views.auth.views
+package com.capstone.nutrisense.views.auth.authviews
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
@@ -16,9 +16,8 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import com.capstone.nutrisense.R
 
-
 @SuppressLint("ClickableViewAccessibility")
-class ButtonCustom @JvmOverloads constructor(
+class LoginButton @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null,
 ) : AppCompatButton(context, attrs) {
     private var enabledBackground: Drawable =

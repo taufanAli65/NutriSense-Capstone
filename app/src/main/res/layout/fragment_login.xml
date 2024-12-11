@@ -51,7 +51,7 @@
         tools:alpha="100"/>
 
 
-    <com.capstone.nutrisense.views.auth.views.EmailEditText
+    <com.capstone.nutrisense.views.auth.authviews.EmailEditText
         android:id="@+id/ed_login_email"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
@@ -81,7 +81,7 @@
         android:alpha="0"
         tools:alpha="100"/>
 
-    <com.capstone.nutrisense.views.auth.views.PasswordEditText
+    <com.capstone.nutrisense.views.auth.authviews.PasswordEditText
         android:id="@+id/ed_login_password"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
@@ -98,7 +98,7 @@
         android:alpha="0"
         tools:alpha="100" />
 
-    <com.capstone.nutrisense.views.auth.views.ButtonCustom
+    <com.capstone.nutrisense.views.auth.authviews.ButtonCustom
         android:id="@+id/login_button"
         android:layout_width="0dp"
         android:layout_height="50dp"

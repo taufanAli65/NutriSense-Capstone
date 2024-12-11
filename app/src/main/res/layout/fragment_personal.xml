@@ -26,7 +26,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:text="@string/title_signup_page"
+        android:text="@string/title_personal"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +49,7 @@
         android:alpha="0"
         tools:alpha="100"/>
 
-    <com.capstone.nutrisense.views.auth.views.NameEditText
+    <com.capstone.nutrisense.views.auth.authviews.NameEditText
         android:id="@+id/ed_register_name"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
@@ -72,14 +72,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="10dp"
-        android:text="@string/email"
+        android:text="@string/weight"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ed_register_name"
         android:alpha="0"
         tools:alpha="100"/>
 
-    <com.capstone.nutrisense.views.auth.views.EmailEditText
+    <com.capstone.nutrisense.views.auth.authviews.WeightEditText
         android:id="@+id/ed_register_email"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
@@ -90,8 +90,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailTextView"
-        app:startIconDrawable="@drawable/email_baseline"
-        android:inputType="textEmailAddress"
+        android:hint="@string/enter_your_weight"
         android:alpha="0"
         tools:alpha="100" />
 
@@ -101,14 +100,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="10dp"
-        android:text="@string/password"
+        android:text="@string/date_birthday"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ed_register_email"
         android:alpha="0"
         tools:alpha="100"/>
 
-    <com.capstone.nutrisense.views.auth.views.PasswordEditText
+    <com.capstone.nutrisense.views.auth.authviews.BirthdayDateText
         android:id="@+id/ed_register_password"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
@@ -116,17 +115,17 @@
         android:layout_marginTop="6dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
+        android:hint="@string/hint_birthday_date"
         app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordTextView"
         app:startIconDrawable="@drawable/lock_baseline"
-        android:inputType="textPassword"
         android:alpha="0"
         tools:alpha="100" />
 
 
-    <com.capstone.nutrisense.views.auth.views.ButtonCustom
+    <com.capstone.nutrisense.views.auth.authviews.ButtonCustom
         android:id="@+id/register_button"
         android:layout_width="0dp"
         android:layout_height="50dp"
