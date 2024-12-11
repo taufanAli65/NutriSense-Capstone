@@ -6,7 +6,8 @@ var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
 var nutritionRouter = require("./routes/nutrition");
-var userRouter = require("./routes/auth");
+var authRouter = require("./routes/auth");
+var userRoutes = require("./routes/user");
 var RateLimit = require('express-rate-limit');
 var limiter = RateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -27,7 +28,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/nutrition", nutritionRouter);
-app.use("/auth", userRouter);
+app.use("/auth", authRouter);
+app.use('/user', userRoutes);
 app.use(limiter); //ngelimit hit
 
 // catch 404 and forward to error handler

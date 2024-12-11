@@ -1,8 +1,7 @@
 var { auth } = require("../database/config");
 
 async function authenticateToken(req, res, next) {
-  const idToken =
-    req.headers.authorization && req.headers.authorization.split(" ")[1];
+  const idToken = req.headers.authorization && req.headers.authorization.split(" ")[1];
   if (!idToken) {
     return res.status(401).json({ message: "No token provided" });
   }
