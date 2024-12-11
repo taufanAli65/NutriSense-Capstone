@@ -1,3 +1,49 @@
 <resources>
     <string name="app_name">NutriSense</string>
+    <string name="signup">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="title_signup_page">Complete your details below</string>
+    <string name="name">Name</string>
+    <string name="logout">Logout</string>
+    <string name="email_invalid">Invalid email format</string>
+    <string name="password_hint">Enter your password</string>
+    <string name="hint_email">Enter your email</string>
+    <string name="password_invalid">Password cannot be less than 8 characters</string>
+    <string name="silahkan_login">NutriSense Login</string>
+    <string name="masuk">Login</string>
+    <string name="belum_punya_akun">Don\'t have an account?</string>
+    <string name="daftar_sekarang">Sign up</string>
+    <string name="masuk_sekarang">Login</string>
+    <string name="sudah_punya_akun">Already have an account?</string>
+    <string name="create_new_story">Create new story</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="logout_message">Are you sure you want to log out?</string>
+    <string name="logout_process">Logging out…</string>
+    <string name="story_photo">Story Photo</string>
+    <string name="story_name">Story name</string>
+    <string name="story_description">Story description</string>
+    <string name="story_date">Story date</string>
+    <string name="no_stories_available">No stories available</string>
+    <string name="welcome">Welcome,</string>
+    <string name="gallery">Gallery</string>
+    <string name="capture">capture</string>
+    <string name="image_preview">Image preview</string>
+    <string name="upload">Upload</string>
+    <string name="camera_start_failed">Camera start failed</string>
+    <string name="please_choose_a_picture_first">Please choose a picture first</string>
+    <string name="please_add_description">Please add description</string>
+    <string name="camera_is_not_ready">Camera is not ready</string>
+    <string name="capture_failed">Capture failed: %1$s</string>
+    <string name="story_uploaded_successfully">Story uploaded successfully</string>
+    <string name="error">Error: %1$s</string>
+    <string name="story_image">Story image</string>
+    <string-array name="array_language">
+        <item>English</item>
+        <item>Indonesia</item>
+    </string-array>
+    <string name="language">Language</string>
+    <string name="settings">Settings</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="flip_camera">flip camera</string>
 </resources>

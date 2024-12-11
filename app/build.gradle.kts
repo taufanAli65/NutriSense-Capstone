@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.capstone.nutrisense"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.capstone.nutrisense"

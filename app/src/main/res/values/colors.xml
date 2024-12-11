@@ -2,4 +2,31 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray">#FF9E9E9E</color>
+    <color name="red">#FFD32F2F</color>"
+
+    <!-- Light Theme Colors -->
+    <color name="primary">#ffcd00</color>
+    <color name="secondary">#ffbf7c</color>
+
+    <!-- Additional Colors -->
+    <color name="surface">#ffffff</color>
+    <color name="background">#f5f5f5</color>
+    <color name="on_surface">#1c1b1f</color>
+    <color name="on_background">#1c1b1f</color>
+
+    <!-- Dark Theme Colors -->
+    <color name="primary_dark">#ffcd00</color>
+    <color name="secondary_dark">#ff0000</color>
+    <color name="on_primary_dark">#00344d</color>
+    <color name="on_secondary_dark">#4d1600</color>
+
+    <!-- Additional Colors -->
+    <color name="surface_dark">#1c1b1f</color>
+    <color name="background_dark">#121212</color>
+    <color name="on_surface_dark">#e6e1e5</color>
+    <color name="on_background_dark">#e6e1e5</color>
+
+    <!-- Extra Colors for Accent -->
+    <color name="accent_blue">#3d85c6</color>
 </resources>
