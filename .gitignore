@@ -1,0 +1,12 @@
+# IntelliJ IDEA
+.idea/
+
+# Kotlin build output
+build/
+
+# .env file
+.env
+
+# Other common files to ignore
+.DS_Store
+*.iml

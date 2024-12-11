@@ -1,0 +1,6 @@
+
+dependencies {
+    // ...existing code...
+    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
+    // ...existing code...
+}
