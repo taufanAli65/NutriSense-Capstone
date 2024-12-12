@@ -6,17 +6,24 @@ async function appendDailyConsumption(userID, data) {
   const docRef = db.collection(userID).doc(formattedDate);
 
   const doc = await docRef.get();
+  const dataWithoutName = {
+    calories: data.calories,
+    protein: data.protein,
+    carbs: data.carbs,
+    fat: data.fat,
+  };
+
   if (doc.exists) {
     const existingData = doc.data().dailyConsumption || {};
     const updatedData = {
-      calories: (existingData.calories || 0) + data.calories,
-      protein: (existingData.protein || 0) + data.protein,
-      carbs: (existingData.carbs || 0) + data.carbs,
-      fat: (existingData.fat || 0) + data.fat,
+      calories: (existingData.calories || 0) + dataWithoutName.calories,
+      protein: (existingData.protein || 0) + dataWithoutName.protein,
+      carbs: (existingData.carbs || 0) + dataWithoutName.carbs,
+      fat: (existingData.fat || 0) + dataWithoutName.fat,
     };
     await docRef.set({ dailyConsumption: updatedData }, { merge: true });
   } else {
-    await docRef.set({ dailyConsumption: data }, { merge: true });
+    await docRef.set({ dailyConsumption: dataWithoutName }, { merge: true });
   }
 }
 
