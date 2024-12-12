@@ -11,8 +11,9 @@ var { editData } = require("../database/editData");
 var { db } = require("../database/config");
 var { appendDailyConsumption } = require("../database/appendDailyConsumption");
 const { getUserID } = require("../database/auth");
+const { upload, uploadToFirebase } = require("../middleware/upload");
 
-router.post("/", authenticateToken, async (req, res) => {
+router.post("/", authenticateToken, upload.single("foodPic"), uploadToFirebase, async (req, res) => {
   try {
     const data = req.body;
     const dataName = data.name;
@@ -20,10 +21,15 @@ router.post("/", authenticateToken, async (req, res) => {
     if (!data.name) {
       return res.status(400).json({ message: "Name is required" });
     }
+    if (!req.file) {
+      return res.status(400).json({ message: "No file uploaded." });
+    }
+    const foodPicUrl = req.file.firebaseStoragePublicUrl;
+    console.log("Data being sent to Firestore:", foodPicUrl);
     const dataToSend = await addDataToCollection(
       req,
       "nutrition",
-      data,
+      { ...data, foodPicUrl }, // Include the foodPicUrl in the data
       dataName
     );
     await appendDailyConsumption(userID, data); // Append daily consumption

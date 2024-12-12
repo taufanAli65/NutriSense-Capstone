@@ -110,10 +110,15 @@ The `NutriSense-API` branch is built using:
   - `Authorization` (string): Bearer token.
 - **Request Body**:
   - `name` (string): Name of the nutrition data.
-  - Other nutrition data fields.
+  - `calories` (number): Calories of the food.
+  - `carbs` (number): Carbohydrates content of the food.
+  - `fat` (number): Fat content of the food.
+  - `protein` (number): Protein content of the food.
+  - `foodPic` (file): Food picture file to upload.
+  - `type` (string): food
 - **Responses**:
   - `200 OK`: Data Added Successfully, returns the added data.
-  - `400 Bad Request`: Name is required.
+  - `400 Bad Request`: Name is required or No file uploaded.
   - `500 Internal Server Error`: An error occurred while adding data.
 
 #### GET /nutrition/:id
@@ -193,6 +198,7 @@ The `NutriSense-API` branch is built using:
   - `Authorization` (string): Bearer token.
 - **Request Body**:
   - `profilePhoto` (file): Profile photo file to upload.
+  - `type` (string): profile
 - **Responses**:
   - `200 OK`: Profile photo uploaded successfully, returns the photo URL.
   - `400 Bad Request`: No file uploaded.

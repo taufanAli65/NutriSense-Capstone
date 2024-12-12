@@ -32,9 +32,31 @@ const uploadToFirebase = async (req, res, next) => {
   if (!userID) {
     return res.status(400).send("UserID is required.");
   }
-  const folderPath = `profilePhoto/`; // Membuat folder profilePhoto/${userID} dan menambahkan nama file
-  const fileName = `${userID}`; // Nama file yang unik
-  const filePath = folderPath + fileName;
+
+  let folderPath;
+  let fileName;
+
+  if (req.body.type === "profile") {
+    folderPath = `${userID}/photoProfile/`;
+    fileName = `${userID}`;
+  } else if (req.body.type === "food") {
+    const date = new Date().toLocaleDateString("en-GB").split('/').join('-'); // Format DD-MM-YYYY
+    folderPath = `${userID}/foods/${date}/`;
+    fileName = `${req.body.name}-${date}`;
+  } else {
+    return res.status(400).send("Invalid type specified.");
+  }
+
+  let filePath = folderPath + fileName;
+  let fileExists = await bucket.file(filePath).exists();
+  let counter = 1;
+
+  while (fileExists[0]) {
+    filePath = folderPath + `${fileName}-${counter}`;
+    fileExists = await bucket.file(filePath).exists();
+    counter++;
+  }
+
   // Membuat referensi file di Firebase Storage dengan folder
   const blob = bucket.file(filePath);
   const blobStream = blob.createWriteStream({
