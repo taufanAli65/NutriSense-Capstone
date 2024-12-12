@@ -7,9 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.capstone.nutrisense.R
-import java.time.LocalDate
 import com.capstone.nutrisense.databinding.FragmentPersonalBinding
 
 class PersonalFragment : Fragment() {
@@ -28,6 +29,11 @@ class PersonalFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentPersonalBinding.bind(view)
+
+        val completeButton: Button = view.findViewById(R.id.complete_button)
+        completeButton.setOnClickListener {
+            findNavController().navigate(R.id.action_personalFragment_to_dashboardFragment)
+        }
 
         binding.weightPicker.apply {
             minValue = 30

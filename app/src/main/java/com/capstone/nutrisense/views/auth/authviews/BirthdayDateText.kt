@@ -8,7 +8,6 @@ import android.view.MotionEvent
 import android.view.View
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
-import androidx.core.widget.addTextChangedListener
 import com.capstone.nutrisense.R
 
 class BirthdayDateText @JvmOverloads constructor(
@@ -20,15 +19,10 @@ class BirthdayDateText @JvmOverloads constructor(
     init {
         setPaddingRelative(30, 20, 50, 20)
         setOnTouchListener(this)
+        isFocusable = false
+        isClickable = true
+        isCursorVisible = false
 
-        addTextChangedListener { input ->
-            when {
-                input.isNullOrEmpty() -> hideClearButton()
-                else -> {
-                    showClearButton()
-                }
-            }
-        }
         setupStyle()
     }
 

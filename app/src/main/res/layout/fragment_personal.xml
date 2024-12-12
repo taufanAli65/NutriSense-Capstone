@@ -92,23 +92,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/weight_picker"/>
 
-    <com.capstone.nutrisense.views.auth.authviews.NameEditText
+
+    <com.capstone.nutrisense.views.auth.authviews.BirthdayDateText
         android:id="@+id/birthday_picker"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="6dp"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:hint="@string/hint_birthday_date"
         app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordTextView" />
 
-
     <com.capstone.nutrisense.views.auth.authviews.ButtonCustom
-        android:id="@+id/register_button"
+        android:id="@+id/complete_button"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
