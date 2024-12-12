@@ -53,5 +53,6 @@
     <string name="title_personal">Complete your personal information</string>
     <string name="weight">Weight</string>
     <string name="enter_your_weight">Enter your weight</string>
+    <string name="complete_personal">Complete</string>
 
 </resources>

@@ -32,39 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal"
-        android:alpha="0"
-        tools:alpha="100"/>
-
-    <TextView
-        android:id="@+id/nameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/name"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
-        android:alpha="0"
-        tools:alpha="100"/>
-
-    <com.capstone.nutrisense.views.auth.authviews.NameEditText
-        android:id="@+id/ed_register_name"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:hint="@string/enter_your_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameTextView"
-        app:startIconDrawable="@drawable/person_baseline"
-        android:alpha="0"
-        tools:alpha="100" />
-
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal" />
 
     <TextView
         android:id="@+id/emailTextView"
@@ -75,9 +43,7 @@
         android:text="@string/email"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_register_name"
-        android:alpha="0"
-        tools:alpha="100"/>
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
 
     <com.capstone.nutrisense.views.auth.authviews.EmailEditText
         android:id="@+id/ed_register_email"
@@ -91,9 +57,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailTextView"
         app:startIconDrawable="@drawable/email_baseline"
-        android:inputType="textEmailAddress"
-        android:alpha="0"
-        tools:alpha="100" />
+        android:inputType="textEmailAddress" />
 
     <TextView
         android:id="@+id/passwordTextView"
@@ -105,8 +69,7 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ed_register_email"
-        android:alpha="0"
-        tools:alpha="100"/>
+        />
 
     <com.capstone.nutrisense.views.auth.authviews.PasswordEditText
         android:id="@+id/ed_register_password"
@@ -121,9 +84,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordTextView"
         app:startIconDrawable="@drawable/lock_baseline"
-        android:inputType="textPassword"
-        android:alpha="0"
-        tools:alpha="100" />
+        android:inputType="textPassword" />
 
 
     <com.capstone.nutrisense.views.auth.authviews.ButtonCustom
@@ -139,9 +100,7 @@
         android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_register_password"
-        android:alpha="0"
-        tools:alpha="100"/>
+        app:layout_constraintTop_toBottomOf="@+id/ed_register_password" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -157,9 +116,7 @@
             android:id="@+id/tv_registered"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sudah_punya_akun"
-            android:alpha="0"
-            tools:alpha="100"/>
+            android:text="@string/sudah_punya_akun"/>
 
         <Button
             android:id="@+id/btn_to_login"
@@ -168,9 +125,7 @@
             android:layout_height="wrap_content"
             android:text="@string/masuk_sekarang"
             android:textStyle="bold"
-            android:textColor="@color/red"
-            android:alpha="0"
-            tools:alpha="100"/>
+            android:textColor="@color/red"/>
 
     </LinearLayout>
 
