@@ -18,4 +18,4 @@ const bucket = admin.storage().bucket();
 const db = getFirestore();
 var auth = admin.auth();
 
-module.exports = { db, auth, bucket };
+module.exports = { db, auth, bucket, FieldValue };

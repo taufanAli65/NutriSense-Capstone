@@ -7,6 +7,7 @@ async function authenticateToken(req, res, next) {
   }
   try {
     const decodedToken = await auth.verifyIdToken(idToken);
+    console.log(decodedToken);
     req.user = decodedToken;
     next();
   } catch (error) {

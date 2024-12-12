@@ -5,11 +5,14 @@ var { getDataByID, getDataByDate, generateDateString } = require("../database/ge
 var { authenticateToken } = require("../middleware/auth");
 var { editData } = require("../database/editData");
 var { db } = require("../database/config");
+var { appendDailyConsumption } = require("../database/appendDailyConsumption");
+const { getUserID } = require("../database/auth");
 
 router.post("/", authenticateToken, async (req, res) => {
   try {
     const data = req.body;
     const dataName = data.name;
+    const userID = await req.user.uid;
     if (!data.name) {
       return res.status(400).json({ message: "Name is required" });
     }
@@ -19,6 +22,7 @@ router.post("/", authenticateToken, async (req, res) => {
       data,
       dataName
     );
+    await appendDailyConsumption(userID, data); // Append daily consumption
     res
       .status(200)
       .json({ message: "Data Added Successfully", data: dataToSend });
