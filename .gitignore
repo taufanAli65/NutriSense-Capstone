@@ -1,0 +1,15 @@
+# Folder virtual environment
+venv/
+env/
+
+# Cache files
+__pycache__/
+
+# File log
+*.log
+
+# .env (untuk variabel lingkungan)
+.env
+
+# File lainnya yang tidak perlu
+*.DS_Store
