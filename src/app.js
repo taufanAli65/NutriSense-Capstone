@@ -8,7 +8,8 @@ var bodyParser = require("body-parser");
 var indexRouter = require("./routes/index");
 var nutritionRouter = require("./routes/nutrition");
 var authRouter = require("./routes/auth");
-var userRoutes = require("./routes/user");
+var userRouter = require("./routes/user");
+var filterRouter = require("./routes/filter");
 var RateLimit = require('express-rate-limit');
 var limiter = RateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -31,7 +32,8 @@ app.use(bodyParser.json()); // Add this line to parse JSON request bodies
 app.use("/", indexRouter);
 app.use("/nutrition", nutritionRouter);
 app.use("/auth", authRouter);
-app.use('/user', userRoutes);
+app.use('/user', userRouter);
+app.use('/filter', filterRouter);
 app.use(limiter); //ngelimit hit
 
 // catch 404 and forward to error handler
