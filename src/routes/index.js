@@ -14,7 +14,9 @@ router.get("/", authenticateToken, async (req, res) => {
       res.status(404).json({ message: "No data found" });
     }
   } catch (error) {
-    res.status(500).json({ message: "Internal Server Error", error: error.message });
+    res
+      .status(500)
+      .json({ message: "Internal Server Error", error: error.message });
   }
 });
 
@@ -23,10 +25,12 @@ router.get("/sort/:date", authenticateToken, async (req, res) => {
     const userID = await getUserID(req);
     const date = req.params.date;
     const data = await getDataByID(userID, date);
-    res.status(200).json({message: "Data Fetched Successfuly", data: data});
+    res.status(200).json({ message: "Data Fetched Successfuly", data: data });
   } catch (error) {
-    res.status(500).json({message: "Internal Server Error", error: error.message});
+    res
+      .status(500)
+      .json({ message: "Internal Server Error", error: error.message });
   }
-})
+});
 
 module.exports = router;

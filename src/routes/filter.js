@@ -4,7 +4,7 @@ const {
   getDataByDate,
   getDataByWeek,
   getDataByMonth,
-  getDataByYear
+  getDataByYear,
 } = require("../database/filter");
 const { getUserID } = require("../database/auth");
 const { authenticateToken } = require("../middleware/auth");
@@ -31,7 +31,7 @@ router.get("/", authenticateToken, async (req, res) => {
       return res.status(400).json({ error: "Invalid parameters" });
     }
 
-    res.status(200).json({message: "Data Fetched Successfuly", data: data });
+    res.status(200).json({ message: "Data Fetched Successfuly", data: data });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
