@@ -15,11 +15,15 @@ async function getData(req, collectionName) {
 }
 
 async function getDataByID(collectionName, documentID) {
-  const doc = await db.collection(`${collectionName}`).doc(documentID).get();
-  if (!doc.exists) {
-    throw new Error("No such document!");
-  } else {
+  try {
+    const doc = await db.collection(collectionName).doc(documentID).get();
+    if (!doc.exists) {
+      return null;  // Tidak ada dokumen yang ditemukan
+    }
     return { id: doc.id, ...doc.data() };
+  } catch (error) {
+    console.error("Error fetching document:", error);
+    throw new Error("Failed to fetch document");
   }
 }
 

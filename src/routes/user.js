@@ -19,9 +19,9 @@ router.get("/", authenticateToken, async (req, res) => {
 
 router.put("/update", authenticateToken, async (req, res) => {
   const userID = await getUserID(req);
-  const { username, birthdate, currentHeight, currentWeight, targetWeight } =
+  const { name, birthdate, currentHeight, currentWeight, targetWeight } =
     req.body;
-  var userTargetWeight = targetWeight || null;
+  var userTargetWeight = targetWeight ?? null;
   // Validate birthdate format
   const birthdateRegex = /^\d{2}-\d{2}-\d{4}$/;
   if (!birthdateRegex.test(birthdate)) {
@@ -29,7 +29,7 @@ router.put("/update", authenticateToken, async (req, res) => {
   }
   try {
     const user = await updateUser(userID, {
-      username,
+      name,
       birthdate,
       currentHeight,
       currentWeight,
@@ -38,12 +38,10 @@ router.put("/update", authenticateToken, async (req, res) => {
     console.log(user);
     res.status(200).json(user);
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: "Error updating user information",
-        errors: error.message,
-      });
+    res.status(500).json({
+      message: "Error updating user information",
+      errors: error.message,
+    });
   }
 });
 
