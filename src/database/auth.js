@@ -40,9 +40,20 @@ async function signUp(email, password) {
   return user;
 }
 
+async function resetPassword(email) {
+  const resetLink = await auth.generatePasswordResetLink(email);
+  await sendVerificationEmail(email, resetLink);
+}
+
+function validateEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(String(email).toLowerCase());
+}
+
+
 async function getUserID(req) {
   const userID = req.user?.uid; // Make sure req.user exists and contains uid
   return userID;
 }
 
-module.exports = { login, signUp, getUserID };
+module.exports = { login, signUp, getUserID, resetPassword, validateEmail };

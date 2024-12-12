@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
-var { login, signUp } = require("../database/auth");
+var { login, signUp, resetPassword, validateEmail } = require("../database/auth");
+const { authenticateToken } = require("../middleware/auth");
 
 router.post("/signup", async (req, res) => {
   try {
@@ -24,6 +25,19 @@ router.post("/login", async (req, res) => {
     const { email, password } = req.body;
     const idToken = await login(email, password);
     res.status(200).json({ message: "Login Success", token: idToken });
+  } catch (error) {
+    res.status(500).json({ message: "Internal Server Error", error: error.message });
+  }
+});
+
+router.post("/reset-password", authenticateToken, async (req, res) => {
+  try {
+    const email = req.user.email;
+    if (!validateEmail(email)) {
+      return res.status(400).json({ message: "Invalid email format" });
+    }
+    await resetPassword(email);
+    res.status(200).json({ message: "Password reset email sent" });
   } catch (error) {
     res.status(500).json({ message: "Internal Server Error", error: error.message });
   }
