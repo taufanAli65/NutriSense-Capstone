@@ -54,5 +54,26 @@
     <string name="weight">Weight</string>
     <string name="enter_your_weight">Enter your weight</string>
     <string name="complete_personal">Complete</string>
+    <string name="welcome_hello">Hello</string>
+    <string name="welcome_to_nutrisense">Welcome to NutriSense</string>
+    <string name="foods_name">foods_name</string>
+    <string name="nutritions">nutrition</string>
+    <string name="personal_name">Name :</string>
+    <string name="is_name">John Doe</string>
+    <string name="personal_weight">Weight :</string>
+    <string name="is_weight">70 kg</string>
+    <string name="personal_height">Height :</string>
+    <string name="is_height">175 cm</string>
+    <string name="personal_birthday">Birthday Date :</string>
+    <string name="is_birthday">01/01/1990</string>
+    <string name="your_personal_data">Your Personal Data</string>
+    <string name="success_food_scan">Sucessfull food scan today</string>
+    <string name="img_content">img_content</string>
+    <string name="food_name">Nama Makanan</string>
+    <string name="nutrition_facts">Nutrition Facts</string>
+    <string name="fat">Fat</string>
+    <string name="carbohydrates">Carbohydrates</string>
+    <string name="protein">Protein</string>
+    <string name="calories">Calories</string>
 
 </resources>
