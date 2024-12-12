@@ -10,7 +10,7 @@ async function appendDailyConsumption(userID, data) {
   delete dataWithoutName.name; // Remove the name property
 
   if (doc.exists) {
-    const existingData = doc.data().dailyConsumption || {};
+    const existingData = doc.data();
     const updatedData = { ...existingData };
 
     // Update existing nutrients and add new ones
@@ -20,9 +20,9 @@ async function appendDailyConsumption(userID, data) {
       }
     }
 
-    await docRef.set({ dailyConsumption: updatedData }, { merge: true });
+    await docRef.set(updatedData, { merge: true });
   } else {
-    await docRef.set({ dailyConsumption: dataWithoutName }, { merge: true });
+    await docRef.set(dataWithoutName, { merge: true });
   }
 }
 
