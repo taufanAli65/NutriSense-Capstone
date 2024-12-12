@@ -1,4 +1,5 @@
 var { auth } = require("../database/config");
+const sendVerificationEmail = require('./sendEmail');
 
 async function login(email, password) {
   require("dotenv").config();
@@ -34,8 +35,7 @@ async function signUp(email, password) {
   const user = await auth.getUser(userRecord.uid);
   const emailVerificationLink = await auth.generateEmailVerificationLink(email);
   user.sendEmailVerification = async () => {
-    // Simulate sending email verification
-    console.log(`Email verification link: ${emailVerificationLink}`);
+    await sendVerificationEmail(email, emailVerificationLink);
   };
   return user;
 }
