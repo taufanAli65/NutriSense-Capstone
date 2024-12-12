@@ -24,13 +24,20 @@ async function login(email, password) {
 }
 
 async function signUp(email, password) {
-  const userResponse = auth.createUser({
+  const userRecord = await auth.createUser({
     email: email,
     password: password,
     emailVerified: false,
     disabled: false,
   });
-  return userResponse;
+  // Send email verification
+  const user = await auth.getUser(userRecord.uid);
+  const emailVerificationLink = await auth.generateEmailVerificationLink(email);
+  user.sendEmailVerification = async () => {
+    // Simulate sending email verification
+    console.log(`Email verification link: ${emailVerificationLink}`);
+  };
+  return user;
 }
 
 async function getUserID(req) {

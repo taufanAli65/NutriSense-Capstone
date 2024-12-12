@@ -6,7 +6,14 @@ router.post("/signup", async (req, res) => {
   try {
     const { email, password } = req.body;
     const userResponse = await signUp(email, password);
-    res.status(201).json({ message: "Sign Up Success", data: userResponse });
+    // Ensure userResponse is defined and contains the necessary method
+    if (userResponse && typeof userResponse.sendEmailVerification === 'function') {
+      // Send email verification
+      await userResponse.sendEmailVerification();
+      res.status(201).json({ message: "Sign Up Success. Verification email sent.", data: userResponse });
+    } else {
+      throw new Error("User response is not valid");
+    }
   } catch (error) {
     res.status(500).json({ message: "Internal Server Error", error: error.message });
   }
