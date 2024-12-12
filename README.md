@@ -1,6 +1,12 @@
 # NutriSense-Capstone
 For bangkit capstone project team
 
+## Branch Information
+The `NutriSense-API` branch is built using:
+- **Express.js**: For creating the server and handling API routes.
+- **Firestore**: As the database for storing user and nutrition data.
+- **Firebase Auth**: For user authentication and authorization.
+
 ## Table of Contents
 - [API Endpoints](#api-endpoints)
   - [Auth Routes](#auth-routes)
