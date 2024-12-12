@@ -6,21 +6,20 @@ async function appendDailyConsumption(userID, data) {
   const docRef = db.collection(userID).doc(formattedDate);
 
   const doc = await docRef.get();
-  const dataWithoutName = {
-    calories: data.calories,
-    protein: data.protein,
-    carbs: data.carbs,
-    fat: data.fat,
-  };
+  const dataWithoutName = { ...data };
+  delete dataWithoutName.name; // Remove the name property
 
   if (doc.exists) {
     const existingData = doc.data().dailyConsumption || {};
-    const updatedData = {
-      calories: (existingData.calories || 0) + dataWithoutName.calories,
-      protein: (existingData.protein || 0) + dataWithoutName.protein,
-      carbs: (existingData.carbs || 0) + dataWithoutName.carbs,
-      fat: (existingData.fat || 0) + dataWithoutName.fat,
-    };
+    const updatedData = { ...existingData };
+
+    // Update existing nutrients and add new ones
+    for (const key in dataWithoutName) {
+      if (dataWithoutName.hasOwnProperty(key)) {
+        updatedData[key] = (existingData[key] || 0) + dataWithoutName[key];
+      }
+    }
+
     await docRef.set({ dailyConsumption: updatedData }, { merge: true });
   } else {
     await docRef.set({ dailyConsumption: dataWithoutName }, { merge: true });
