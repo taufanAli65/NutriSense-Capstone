@@ -1,6 +1,14 @@
 # NutriSense-Capstone
 For bangkit capstone project team
 
+## Table of Contents
+- [API Endpoints](#api-endpoints)
+  - [Auth Routes](#auth-routes)
+  - [Filter Routes](#filter-routes)
+  - [Root Routes](#root-routes)
+  - [Nutrition Routes](#nutrition-routes)
+  - [User Routes](#user-routes)
+
 ## API Endpoints
 
 ### Auth Routes
