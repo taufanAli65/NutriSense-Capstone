@@ -75,8 +75,5 @@
     <string name="carbohydrates">Carbohydrates</string>
     <string name="protein">Protein</string>
     <string name="calories">Calories</string>
-    <string name="menu_dashboard">Dashboard</string>
-    <string name="result_scan">Result Scan</string>
-    <string name="camera">Camera</string>
 
 </resources>
