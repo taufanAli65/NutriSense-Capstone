@@ -9,12 +9,12 @@
 
     <item
         android:id="@+id/menu_result_scan"
-        android:title="@string/result_scan"
+        android:title="@string/menu_result_scan"
         android:icon="@drawable/baseline_history" />
 
     <item
         android:id="@+id/menu_camera"
-        android:title="@string/camera"
+        android:title="@string/menu_camera"
         android:icon="@drawable/baseline_camera" />
 
     <item

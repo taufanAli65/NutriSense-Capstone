@@ -37,7 +37,17 @@
         android:id="@+id/personalFragment"
         android:name="com.capstone.nutrisense.views.auth.PersonalFragment"
         android:label="fragment_personal"
-        tools:layout="@layout/fragment_personal" />
+        tools:layout="@layout/fragment_personal" >
+    <action
+        android:id="@+id/action_personalFragment_to_dashboardFragment"
+        app:destination="@id/dashboardFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.capstone.nutrisense.views.main.DashboardFragment"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
 
 
 </navigation>
