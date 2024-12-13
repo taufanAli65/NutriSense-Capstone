@@ -40,10 +40,13 @@ class PersonalFragment : Fragment() {
             maxValue = 200
             value = 65
             wrapSelectorWheel = true
-            setOnValueChangedListener { picker, oldVal, newVal ->
-                Toast.makeText(requireContext(), "Weight: $newVal", Toast.LENGTH_SHORT).show()
-        }
     }
+        binding.heightPicker.apply {
+            minValue = 100
+            maxValue = 250
+            value = 160
+            wrapSelectorWheel = true
+        }
         binding.birthdayPicker.setOnClickListener {
             showDatePicker()
         }

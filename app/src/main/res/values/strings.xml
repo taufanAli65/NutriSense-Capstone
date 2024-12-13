@@ -78,5 +78,6 @@
     <string name="menu_dashboard">Dashboard</string>
     <string name="menu_result_scan">Result Scan</string>
     <string name="menu_camera">Camera</string>
+    <string name="height">Height</string>
 
 </resources>
