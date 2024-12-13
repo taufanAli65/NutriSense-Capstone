@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_dashboard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".views.main.DashboardFragment">
@@ -182,7 +183,7 @@
         app:layout_constraintTop_toBottomOf="@+id/personal_card"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_event_upcoming"
+        android:id="@+id/rv_food"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -207,23 +208,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/button_nav"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/button_nav"
-        android:layout_height="wrap_content"
-        android:layout_width="0dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        android:background="?android:attr/windowBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/menu_nav_button"
-        />
 </androidx.constraintlayout.widget.ConstraintLayout>

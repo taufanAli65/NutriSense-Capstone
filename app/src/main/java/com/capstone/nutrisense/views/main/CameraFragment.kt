@@ -7,6 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.capstone.nutrisense.R
 
-class ResultScanFragment : Fragment(R.layout.fragment_result_scan) {
+class CameraFragment : Fragment(R.layout.fragment_camera) {
     // Implementasi fragment sesuai kebutuhan
 }

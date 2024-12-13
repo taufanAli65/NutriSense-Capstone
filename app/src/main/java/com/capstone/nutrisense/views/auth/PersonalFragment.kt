@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.capstone.nutrisense.R
 import com.capstone.nutrisense.databinding.FragmentPersonalBinding
