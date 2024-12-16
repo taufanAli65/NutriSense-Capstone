@@ -7,6 +7,14 @@ The `NutriSense-API` branch is built using:
 - **Firestore**: As the database for storing user and nutrition data.
 - **Firebase Auth**: For user authentication and authorization.
 
+## Mobile Development Tools & Libraries
+- Android Studio
+- Retrofit
+- Room
+- CameraX
+- Figma
+- Firebase
+
 ## Table of Contents
 - [API Endpoints](#api-endpoints)
   - [Auth Routes](#auth-routes)
