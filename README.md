@@ -1,5 +1,5 @@
 # NutriSense-Capstone
-For bangkit capstone project team
+For bangkit capstone project team C242-PS060 
 
 ## Branch Information
 The `NutriSense-API` branch is built using:
@@ -25,7 +25,31 @@ The `NutriSense-API` branch is built using:
   - `email` (string): User's email address.
   - `password` (string): User's password.
 - **Responses**:
-  - `201 Created`: Sign up successful, verification email sent.
+  - `201 Created`: 
+    ```json
+    {
+      "message": "Sign Up Success. Verification email sent.",
+      "data": {
+        "uid": "dLswwdcCZbPhN1I5pqosutS8Opx2",
+        "email": "taufanali65@gmail.com",
+        "emailVerified": false,
+        "disabled": false,
+        "metadata": {
+          "lastSignInTime": null,
+          "creationTime": "Mon, 16 Dec 2024 06:21:28 GMT",
+          "lastRefreshTime": null
+        },
+        "tokensValidAfterTime": "Mon, 16 Dec 2024 06:21:28 GMT",
+        "providerData": [
+          {
+            "uid": "taufanali65@gmail.com",
+            "email": "taufanali65@gmail.com",
+            "providerId": "password"
+          }
+        ]
+      }
+    }
+    ```
   - `500 Internal Server Error`: An error occurred during sign up.
 
 #### POST /auth/login
@@ -34,7 +58,13 @@ The `NutriSense-API` branch is built using:
   - `email` (string): User's email address.
   - `password` (string): User's password.
 - **Responses**:
-  - `200 OK`: Login successful, returns an ID token.
+  - `200 OK`: 
+    ```json
+    {
+      "message": "Login Success",
+      "token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImJkMGFlMTRkMjhkMTY1NzhiMzFjOGJlNmM4ZmRlZDM0ZDVlMWExYzEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbnV0cmlzZW5zZS1kZGQ4OSIsImF1ZCI6Im51dHJpc2Vuc2UtZGRkODkiLCJhdXRoX3RpbWUiOjE3MzQzMzAxNjcsInVzZXJfaWQiOiJkTHN3d2RjQ1piUGhOMUk1cHFvc3V0UzhPcHgyIiwic3ViIjoiZExzd3dkY0NaYlBoTjFJNXBxb3N1dFM4T3B4MiIsImlhdCI6MTczNDMzMDE2NywiZXhwIjoxNzM0MzMzNzY3LCJlbWFpbCI6InRhdWZhbmFsaTY1QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJ0YXVmYW5hbGk2NUBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.BJeHINq1Y6OcNw2Y65usQAFzKtBRLAdMX0JR86m8qymJWCsZSax5JgTp7i9lphbV_qV3vUS4FnCEd83_7gYO7XqEd0VCwSRP18JhV9qXpPZmaD7-lPyVXJ-sSmAR9yXANIy8pDJs9GeMENLf6pGef0p49AhfPQ6HJMPCOLJLkzvVK0eQ70zjlnAQdOWYHRFuO-scgwBymGQBGPFchEcyM-vd4RDSDn0uBVKzH-7Y3DG8XI_IYqFet_FQJaS538Le57Zov8Kk1iGDxWbZnbdud4oSrYRW20xPOzLC_RliknYyQQmL_l7Mo-7_6xcpgVm8P_uuElSOfkCwoncdTtfMFQ"
+    }
+    ```
   - `500 Internal Server Error`: An error occurred during login.
 
 #### POST /auth/reset-password
@@ -42,7 +72,12 @@ The `NutriSense-API` branch is built using:
 - **Headers**:
   - `Authorization` (string): Bearer token.
 - **Responses**:
-  - `200 OK`: Password reset email sent.
+  - `200 OK`: 
+    ```json
+    {
+      "message": "Password reset email sent"
+    }
+    ```
   - `400 Bad Request`: Invalid email format.
   - `500 Internal Server Error`: An error occurred during password reset.
 
@@ -53,7 +88,21 @@ The `NutriSense-API` branch is built using:
 - **Query Parameters**:
   - `month` (number): Month number (1-12).
 - **Responses**:
-  - `200 OK`: Returns data for the specified month.
+  - `200 OK`: 
+    ```json
+    {
+      "message": "Data Fetched Successfully",
+      "data": [
+        {
+          "date": "12-12-2024",
+          "carbs": 75,
+          "protein": 1.5,
+          "fat": 0.8999999999999999,
+          "calories": 285
+        }
+      ]
+    }
+    ```
   - `500 Internal Server Error`: An error occurred while fetching data.
 
 #### GET /filter?date
@@ -61,7 +110,21 @@ The `NutriSense-API` branch is built using:
 - **Query Parameters**:
   - `date` (string): Date in `DD-MM-YYYY` format.
 - **Responses**:
-  - `200 OK`: Returns data for the specified date.
+  - `200 OK`: 
+    ```json
+    {
+      "message": "Data Fetched Successfully",
+      "data": [
+        {
+          "date": "12-12-2024",
+          "carbs": 75,
+          "protein": 1.5,
+          "fat": 0.8999999999999999,
+          "calories": 285
+        }
+      ]
+    }
+    ```
   - `500 Internal Server Error`: An error occurred while fetching data.
 
 #### GET /filter?month&week
@@ -70,7 +133,21 @@ The `NutriSense-API` branch is built using:
   - `month` (number): Month number (1-12).
   - `week` (number): Week number (1-4).
 - **Responses**:
-  - `200 OK`: Returns data for the specified week.
+  - `200 OK`: 
+    ```json
+    {
+      "message": "Data Fetched Successfully",
+      "data": [
+        {
+          "date": "12-12-2024",
+          "carbs": 75,
+          "protein": 1.5,
+          "fat": 0.8999999999999999,
+          "calories": 285
+        }
+      ]
+    }
+    ```
   - `500 Internal Server Error`: An error occurred while fetching data.
 
 #### GET /filter?year
@@ -78,7 +155,21 @@ The `NutriSense-API` branch is built using:
 - **Query Parameters**:
   - `year` (number): Year.
 - **Responses**:
-  - `200 OK`: Returns data for the specified year.
+  - `200 OK`: 
+    ```json
+    {
+      "message": "Data Fetched Successfully",
+      "data": [
+        {
+          "date": "12-12-2024",
+          "carbs": 75,
+          "protein": 1.5,
+          "fat": 0.8999999999999999,
+          "calories": 285
+        }
+      ]
+    }
+    ```
   - `500 Internal Server Error`: An error occurred while fetching data.
 
 ### Root Routes
@@ -88,7 +179,62 @@ The `NutriSense-API` branch is built using:
 - **Headers**:
   - `Authorization` (string): Bearer token.
 - **Responses**:
-  - `200 OK`: Get Data Success, returns nutrition data.
+  - `200 OK`: 
+    ```json
+    {
+      "message": "Get Data Success",
+      "data": [
+        {
+          "id": "JF3knMGSHVeqiuOcWKy613gelZr1-ayambawang-2024-12-12:19.00",
+          "name": "ayam bawang",
+          "calories": 95,
+          "carbs": 25,
+          "fat": 0.3,
+          "protein": 0.5,
+          "user_id": "JF3knMGSHVeqiuOcWKy613gelZr1",
+          "date": "2024-12-12:19.00"
+        },
+        {
+          "id": "JF3knMGSHVeqiuOcWKy613gelZr1-ayambawang-2024-12-12:19.01",
+          "name": "ayam bawang",
+          "calories": 95,
+          "carbs": 25,
+          "fat": 0.3,
+          "protein": 0.5,
+          "user_id": "JF3knMGSHVeqiuOcWKy613gelZr1",
+          "date": "2024-12-12:19.01"
+        },
+        {
+          "id": "JF3knMGSHVeqiuOcWKy613gelZr1-bakso-2024-12-12:13.41",
+          "name": "bakso",
+          "calories": 95,
+          "protein": 0.5,
+          "carbs": 25,
+          "fat": 0.3,
+          "user_id": "JF3knMGSHVeqiuOcWKy613gelZr1",
+          "date": "2024-12-12:13.41"
+        },
+        {
+          "id": "JF3knMGSHVeqiuOcWKy613gelZr1-sate-2024-12-12:04.10",
+          "name": "sate",
+          "type": "food",
+          "calories": "99",
+          "foodPicUrl": "https://storage.googleapis.com/nutrisense-ddd89.firebasestorage.app/JF3knMGSHVeqiuOcWKy613gelZr1/foods/13-12-2024/sate-13-12-2024",
+          "user_id": "JF3knMGSHVeqiuOcWKy613gelZr1",
+          "date": "2024-12-12:04.10"
+        },
+        {
+          "id": "JF3knMGSHVeqiuOcWKy613gelZr1-sate-2024-12-12:04.14",
+          "name": "sate",
+          "type": "food",
+          "calories": "99",
+          "foodPicUrl": "https://storage.googleapis.com/nutrisense-ddd89.firebasestorage.app/JF3knMGSHVeqiuOcWKy613gelZr1/foods/13-12-2024/sate-13-12-2024-1",
+          "user_id": "JF3knMGSHVeqiuOcWKy613gelZr1",
+          "date": "2024-12-12:04.14"
+        }
+      ]
+    }
+    ```
   - `404 Not Found`: No data found.
   - `500 Internal Server Error`: An error occurred while fetching data.
 
@@ -99,7 +245,20 @@ The `NutriSense-API` branch is built using:
 - **Path Parameters**:
   - `date` (string): Date in `YYYY-MM-DD` format.
 - **Responses**:
-  - `200 OK`: Data Fetched Successfully, returns nutrition data for the specified date.
+  - `200 OK`: 
+    ```json
+    {
+      "message": "Data Fetched Successfully",
+      "data": {
+        "id": "12-12-2024",
+        "date": "12-12-2024",
+        "carbs": 75,
+        "protein": 1.5,
+        "fat": 0.8999999999999999,
+        "calories": 285
+      }
+    }
+    ```
   - `500 Internal Server Error`: An error occurred while fetching data.
 
 ### Nutrition Routes
@@ -110,14 +269,24 @@ The `NutriSense-API` branch is built using:
   - `Authorization` (string): Bearer token.
 - **Request Body**:
   - `name` (string): Name of the nutrition data.
-  - `calories` (number): Calories of the food.
-  - `carbs` (number): Carbohydrates content of the food.
-  - `fat` (number): Fat content of the food.
-  - `protein` (number): Protein content of the food.
   - `foodPic` (file): Food picture file to upload.
   - `type` (string): food
+  - other data (such as carbs, protein, etc).
 - **Responses**:
-  - `200 OK`: Data Added Successfully, returns the added data.
+  - `200 OK`: 
+    ```json
+    {
+      "message": "Data Added Successfully",
+      "data": {
+        "name": "sate",
+        "type": "food",
+        "protein": "99",
+        "foodPicUrl": "https://storage.googleapis.com/nutrisense-ddd89.firebasestorage.app/JF3knMGSHVeqiuOcWKy613gelZr1/foods/16-12-2024/sate-16-12-2024",
+        "user_id": "JF3knMGSHVeqiuOcWKy613gelZr1",
+        "date": "2024-12-16:13.45"
+      }
+    }
+    ```
   - `400 Bad Request`: Name is required or No file uploaded.
   - `500 Internal Server Error`: An error occurred while adding data.
 
@@ -128,7 +297,21 @@ The `NutriSense-API` branch is built using:
 - **Path Parameters**:
   - `id` (string): ID of the nutrition data.
 - **Responses**:
-  - `200 OK`: Get Data Success, returns the nutrition data.
+  - `200 OK`: 
+    ```json
+    {
+      "message": "Get Data Success",
+      "data": {
+        "id": "JF3knMGSHVeqiuOcWKy613gelZr1-sate-2024-12-16:13.45",
+        "name": "sate",
+        "type": "food",
+        "protein": "99",
+        "foodPicUrl": "https://storage.googleapis.com/nutrisense-ddd89.firebasestorage.app/JF3knMGSHVeqiuOcWKy613gelZr1/foods/16-12-2024/sate-16-12-2024",
+        "user_id": "JF3knMGSHVeqiuOcWKy613gelZr1",
+        "date": "2024-12-16:13.45"
+      }
+    }
+    ```
   - `500 Internal Server Error`: An error occurred while fetching data.
 
 #### PUT /nutrition/:id
@@ -140,7 +323,15 @@ The `NutriSense-API` branch is built using:
 - **Request Body**:
   - Updated nutrition data fields.
 - **Responses**:
-  - `200 OK`: Data Successfully Updated, returns the updated data.
+  - `200 OK`: 
+    ```json
+    {
+      "message": "Data Successfully Updated",
+      "data_added": {
+        "protein": 8
+      }
+    }
+    ```
   - `500 Internal Server Error`: An error occurred while updating data.
 
 #### DELETE /nutrition/:id
@@ -150,7 +341,12 @@ The `NutriSense-API` branch is built using:
 - **Path Parameters**:
   - `id` (string): ID of the nutrition data.
 - **Responses**:
-  - `200 OK`: Data Deleted Successfully.
+  - `200 OK`: 
+    ```json
+    {
+      "message": "Data Deleted Successfully"
+    }
+    ```
   - `500 Internal Server Error`: An error occurred while deleting data.
 
 #### GET /nutrition/:foods/:year/:month?/:week?/:day?
@@ -164,7 +360,32 @@ The `NutriSense-API` branch is built using:
   - `week` (string, optional): Week.
   - `day` (string, optional): Day.
 - **Responses**:
-  - `200 OK`: Get Data Success, returns the nutrition data.
+  - `200 OK`: 
+    ```json
+    {
+      "message": "Get Data Success",
+      "data": [
+        {
+          "name": "ayam bawang",
+          "calories": 95,
+          "carbs": 25,
+          "fat": 0.3,
+          "protein": 0.5,
+          "user_id": "JF3knMGSHVeqiuOcWKy613gelZr1",
+          "date": "2024-12-12:19.00"
+        },
+        {
+          "name": "ayam bawang",
+          "calories": 95,
+          "carbs": 25,
+          "fat": 0.3,
+          "protein": 0.5,
+          "user_id": "JF3knMGSHVeqiuOcWKy613gelZr1",
+          "date": "2024-12-12:19.01"
+        }
+      ]
+    }
+    ```
   - `500 Internal Server Error`: An error occurred while fetching data.
 
 ### User Routes
@@ -174,7 +395,18 @@ The `NutriSense-API` branch is built using:
 - **Headers**:
   - `Authorization` (string): Bearer token.
 - **Responses**:
-  - `200 OK`: Returns user information.
+  - `200 OK`: 
+    ```json
+    {
+      "id": "JF3knMGSHVeqiuOcWKy613gelZr1",
+      "name": "Taufan Ali",
+      "birthdate": "15-06-2000",
+      "currentHeight": 175,
+      "currentWeight": 70.5,
+      "userTargetWeight": 65,
+      "profilePhotoUrl": "https://storage.googleapis.com/nutrisense-ddd89.firebasestorage.app/JF3knMGSHVeqiuOcWKy613gelZr1/photoProfile/JF3knMGSHVeqiuOcWKy613gelZr1"
+    }
+    ```
   - `500 Internal Server Error`: An error occurred while fetching user information.
 
 #### PUT /user/update
@@ -188,7 +420,20 @@ The `NutriSense-API` branch is built using:
   - `currentWeight` (number): User's current weight.
   - `targetWeight` (number, optional): User's target weight.
 - **Responses**:
-  - `200 OK`: User information updated successfully.
+  - `200 OK`: 
+    ```json
+    {
+      "message": "User updated successfully",
+      "data": {
+        "name": "Taufan Ali",
+        "birthdate": "15-06-2000",
+        "profilePhotoUrl": "https://storage.googleapis.com/nutrisense-ddd89.firebasestorage.app/JF3knMGSHVeqiuOcWKy613gelZr1/photoProfile/JF3knMGSHVeqiuOcWKy613gelZr1",
+        "currentWeight": 65,
+        "userTargetWeight": null,
+        "currentHeight": 167
+      }
+    }
+    ```
   - `400 Bad Request`: Invalid birthdate format.
   - `500 Internal Server Error`: An error occurred while updating user information.
 
@@ -200,6 +445,12 @@ The `NutriSense-API` branch is built using:
   - `profilePhoto` (file): Profile photo file to upload.
   - `type` (string): profile
 - **Responses**:
-  - `200 OK`: Profile photo uploaded successfully, returns the photo URL.
+  - `200 OK`: 
+    ```json
+    {
+      "message": "Profile photo uploaded successfully.",
+      "profilePhotoUrl": "https://storage.googleapis.com/nutrisense-ddd89.firebasestorage.app/JF3knMGSHVeqiuOcWKy613gelZr1/photoProfile/JF3knMGSHVeqiuOcWKy613gelZr1-1"
+    }
+    ```
   - `400 Bad Request`: No file uploaded.
   - `500 Internal Server Error`: An error occurred while uploading the file.
